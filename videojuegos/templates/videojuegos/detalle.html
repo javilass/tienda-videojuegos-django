@@ -1,0 +1,38 @@
+{% extends 'videojuegos/base.html' %}
+{% load formato %}
+{% block titulo %}{{ juego.titulo }}{% endblock %}
+
+{% block contenido %}
+<a href="{% url 'videojuego_lista' %}" class="btn btn-sm btn-outline-secondary mb-3"><i class="bi bi-arrow-left"></i> Volver al catálogo</a>
+
+<div class="tarjeta rounded p-4">
+    <div class="d-flex justify-content-between flex-wrap gap-2">
+        <div>
+            <span class="badge plat-{{ juego.plataforma }} mb-2">{{ juego.get_plataforma_display }}</span>
+            <h2>{{ juego.titulo }}</h2>
+        </div>
+        <div class="text-end">
+            <div class="precio fs-2">{{ juego.precio|clp }}</div>
+            {% if juego.disponible %}
+                <span class="badge bg-success">{{ juego.stock }} en stock</span>
+            {% else %}
+                <span class="badge bg-danger">Agotado</span>
+            {% endif %}
+        </div>
+    </div>
+
+    <hr>
+    <dl class="row mb-0">
+        <dt class="col-sm-3">Género</dt>              <dd class="col-sm-9">{{ juego.get_genero_display }}</dd>
+        <dt class="col-sm-3">Año de lanzamiento</dt>  <dd class="col-sm-9">{{ juego.anio_lanzamiento }}</dd>
+        <dt class="col-sm-3">Clasificación</dt>       <dd class="col-sm-9">{{ juego.get_clasificacion_display }}</dd>
+        <dt class="col-sm-3">Descripción</dt>         <dd class="col-sm-9">{{ juego.descripcion|default:"Sin descripción." }}</dd>
+        <dt class="col-sm-3">Registrado</dt>          <dd class="col-sm-9">{{ juego.fecha_registro|date:"d/m/Y H:i" }}</dd>
+        <dt class="col-sm-3">ID en la BD</dt>         <dd class="col-sm-9">{{ juego.pk }}</dd>
+    </dl>
+    <hr>
+
+    <a href="{% url 'videojuego_editar' juego.pk %}" class="btn btn-warning"><i class="bi bi-pencil"></i> Editar</a>
+    <a href="{% url 'videojuego_eliminar' juego.pk %}" class="btn btn-outline-danger"><i class="bi bi-trash"></i> Eliminar</a>
+</div>
+{% endblock %}

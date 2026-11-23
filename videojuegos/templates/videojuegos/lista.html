@@ -1,0 +1,68 @@
+{% extends 'videojuegos/base.html' %}
+{% load formato %}
+{% block titulo %}Catálogo{% endblock %}
+
+{% block contenido %}
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h2><i class="bi bi-grid"></i> Catálogo de videojuegos</h2>
+    <a href="{% url 'videojuego_crear' %}" class="btn btn-primary"><i class="bi bi-plus-circle"></i> Agregar juego</a>
+</div>
+
+<!-- Buscador: usa GET, por eso los filtros quedan en la URL (?q=...&plataforma=...) -->
+<form method="get" class="row g-2 mb-4">
+    <div class="col-md-6">
+        <input type="text" name="q" value="{{ busqueda }}" class="form-control" placeholder="Buscar por título...">
+    </div>
+    <div class="col-md-3">
+        <select name="plataforma" class="form-select">
+            <option value="">Todas las plataformas</option>
+            {% for valor, nombre in plataformas %}
+                <option value="{{ valor }}" {% if valor == plataforma %}selected{% endif %}>{{ nombre }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="col-md-3 d-flex gap-2">
+        <button class="btn btn-outline-primary flex-fill"><i class="bi bi-search"></i> Buscar</button>
+        <a href="{% url 'videojuego_lista' %}" class="btn btn-outline-secondary">Limpiar</a>
+    </div>
+</form>
+
+<!-- Tabla con todos los registros -->
+<div class="table-responsive">
+    <table class="table table-hover align-middle">
+        <thead class="table-light">
+            <tr>
+                <th>Título</th>
+                <th>Plataforma</th>
+                <th>Género</th>
+                <th>Año</th>
+                <th class="text-end">Precio</th>
+                <th class="text-center">Stock</th>
+                <th class="text-end">Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for juego in juegos %}
+            <tr>
+                <td><a href="{% url 'videojuego_detalle' juego.pk %}" class="link-dark fw-semibold">{{ juego.titulo }}</a></td>
+                <td><span class="badge plat-{{ juego.plataforma }}">{{ juego.get_plataforma_display }}</span></td>
+                <td>{{ juego.get_genero_display }}</td>
+                <td>{{ juego.anio_lanzamiento }}</td>
+                <td class="text-end precio">{{ juego.precio|clp }}</td>
+                <td class="text-center">
+                    {% if juego.disponible %}{{ juego.stock }}{% else %}<span class="badge bg-danger">Agotado</span>{% endif %}
+                </td>
+                <td class="text-end text-nowrap">
+                    <a href="{% url 'videojuego_detalle' juego.pk %}" class="btn btn-sm btn-outline-info" title="Ver"><i class="bi bi-eye"></i></a>
+                    <a href="{% url 'videojuego_editar' juego.pk %}" class="btn btn-sm btn-outline-warning" title="Editar"><i class="bi bi-pencil"></i></a>
+                    <a href="{% url 'videojuego_eliminar' juego.pk %}" class="btn btn-sm btn-outline-danger" title="Eliminar"><i class="bi bi-trash"></i></a>
+                </td>
+            </tr>
+            {% empty %}
+            <tr><td colspan="7" class="text-center text-secondary py-4">No se encontraron videojuegos.</td></tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+<p class="text-secondary small">{{ juegos|length }} resultado(s)</p>
+{% endblock %}
