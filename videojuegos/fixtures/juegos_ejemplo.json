@@ -1,0 +1,122 @@
+[
+  {
+    "model": "videojuegos.videojuego",
+    "pk": 1,
+    "fields": {
+      "titulo": "The Legend of Zelda: Tears of the Kingdom",
+      "plataforma": "SWITCH",
+      "genero": "AVENTURA",
+      "precio": "59990",
+      "stock": 12,
+      "anio_lanzamiento": 2023,
+      "clasificacion": "E",
+      "descripcion": "Link explora Hyrule por tierra y cielo en esta secuela de mundo abierto.",
+      "fecha_registro": "2026-11-10T12:00:00Z"
+    }
+  },
+  {
+    "model": "videojuegos.videojuego",
+    "pk": 2,
+    "fields": {
+      "titulo": "Elden Ring",
+      "plataforma": "PS5",
+      "genero": "RPG",
+      "precio": "44990",
+      "stock": 8,
+      "anio_lanzamiento": 2022,
+      "clasificacion": "M",
+      "descripcion": "RPG de acción en un mundo abierto oscuro creado por FromSoftware.",
+      "fecha_registro": "2026-11-11T12:00:00Z"
+    }
+  },
+  {
+    "model": "videojuegos.videojuego",
+    "pk": 3,
+    "fields": {
+      "titulo": "EA Sports FC 25",
+      "plataforma": "PS5",
+      "genero": "DEPORTES",
+      "precio": "54990",
+      "stock": 20,
+      "anio_lanzamiento": 2024,
+      "clasificacion": "E",
+      "descripcion": "Simulador de fútbol con ligas y clubes licenciados.",
+      "fecha_registro": "2026-11-12T12:00:00Z"
+    }
+  },
+  {
+    "model": "videojuegos.videojuego",
+    "pk": 4,
+    "fields": {
+      "titulo": "Forza Horizon 5",
+      "plataforma": "XBOX",
+      "genero": "CARRERAS",
+      "precio": "39990",
+      "stock": 5,
+      "anio_lanzamiento": 2021,
+      "clasificacion": "E",
+      "descripcion": "Carreras en mundo abierto ambientadas en México.",
+      "fecha_registro": "2026-11-13T12:00:00Z"
+    }
+  },
+  {
+    "model": "videojuegos.videojuego",
+    "pk": 5,
+    "fields": {
+      "titulo": "Halo Infinite",
+      "plataforma": "XBOX",
+      "genero": "SHOOTER",
+      "precio": "29990",
+      "stock": 0,
+      "anio_lanzamiento": 2021,
+      "clasificacion": "T",
+      "descripcion": "El Jefe Maestro vuelve en un shooter de ciencia ficción.",
+      "fecha_registro": "2026-11-14T12:00:00Z"
+    }
+  },
+  {
+    "model": "videojuegos.videojuego",
+    "pk": 6,
+    "fields": {
+      "titulo": "Mario Kart 8 Deluxe",
+      "plataforma": "SWITCH",
+      "genero": "CARRERAS",
+      "precio": "49990",
+      "stock": 15,
+      "anio_lanzamiento": 2017,
+      "clasificacion": "E",
+      "descripcion": "Carreras de karts con los personajes de Nintendo.",
+      "fecha_registro": "2026-11-15T12:00:00Z"
+    }
+  },
+  {
+    "model": "videojuegos.videojuego",
+    "pk": 7,
+    "fields": {
+      "titulo": "Age of Empires IV",
+      "plataforma": "PC",
+      "genero": "ESTRATEGIA",
+      "precio": "24990",
+      "stock": 6,
+      "anio_lanzamiento": 2021,
+      "clasificacion": "T",
+      "descripcion": "Estrategia en tiempo real con civilizaciones históricas.",
+      "fecha_registro": "2026-11-16T12:00:00Z"
+    }
+  },
+  {
+    "model": "videojuegos.videojuego",
+    "pk": 8,
+    "fields": {
+      "titulo": "God of War Ragnarök",
+      "plataforma": "PS5",
+      "genero": "ACCION",
+      "precio": "49990",
+      "stock": 3,
+      "anio_lanzamiento": 2022,
+      "clasificacion": "M",
+      "descripcion": "Kratos y Atreus enfrentan el fin de los nueve reinos.",
+      "fecha_registro": "2026-11-17T12:00:00Z"
+    }
+  }
+]
