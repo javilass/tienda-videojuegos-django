@@ -1,0 +1,50 @@
+{% extends 'videojuegos/base.html' %}
+{% load formato %}
+{% block titulo %}Inicio{% endblock %}
+
+{% block contenido %}
+<section class="hero p-5 mb-4">
+    <h1 class="fw-bold"><i class="bi bi-controller"></i> Bienvenido a Zona Arcade</h1>
+    <p class="lead">Administra el catálogo de la tienda: agrega, consulta, edita y elimina videojuegos.</p>
+    <a href="{% url 'videojuego_lista' %}" class="btn btn-primary me-2"><i class="bi bi-grid"></i> Ver catálogo</a>
+    <a href="{% url 'videojuego_crear' %}" class="btn btn-outline-primary"><i class="bi bi-plus-circle"></i> Agregar juego</a>
+</section>
+
+<!-- Estadísticas calculadas en la vista "inicio" -->
+<div class="row g-3 mb-4 text-center">
+    <div class="col-md-4">
+        <div class="tarjeta rounded p-3">
+            <div class="stat-num">{{ total_juegos }}</div>
+            <div>Videojuegos en catálogo</div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="tarjeta rounded p-3">
+            <div class="stat-num">{{ total_stock }}</div>
+            <div>Unidades en stock</div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="tarjeta rounded p-3">
+            <div class="stat-num">{{ agotados }}</div>
+            <div>Juegos agotados</div>
+        </div>
+    </div>
+</div>
+
+<h4 class="mb-3">Agregados recientemente</h4>
+<div class="row g-3">
+    {% for juego in recientes %}
+        <div class="col-md-4">
+            <div class="tarjeta rounded p-3 h-100">
+                <span class="badge plat-{{ juego.plataforma }}">{{ juego.get_plataforma_display }}</span>
+                <h5 class="mt-2">{{ juego.titulo }}</h5>
+                <p class="precio mb-2">{{ juego.precio|clp }}</p>
+                <a href="{% url 'videojuego_detalle' juego.pk %}" class="btn btn-sm btn-outline-primary">Ver detalle</a>
+            </div>
+        </div>
+    {% empty %}
+        <p class="text-secondary">Aún no hay videojuegos. ¡Agrega el primero!</p>
+    {% endfor %}
+</div>
+{% endblock %}

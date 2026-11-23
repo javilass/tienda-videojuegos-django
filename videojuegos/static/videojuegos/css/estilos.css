@@ -1,0 +1,75 @@
+/* Estilos propios de la tienda (diseño claro y simple) */
+body {
+    background: #ffffff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main { flex: 1; }
+
+.navbar-brand { font-weight: 700; }
+
+/* Recuadro de bienvenida en la página principal */
+.hero {
+    background: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: .5rem;
+}
+
+/* Tarjetas y cajas de formulario: fondo blanco con borde gris */
+.tarjeta,
+.form-box {
+    background: #ffffff;
+    border: 1px solid #dee2e6;
+    border-radius: .5rem;
+}
+
+.precio { color: #198754; font-weight: 700; }
+
+.stat-num { font-size: 2rem; font-weight: 700; }
+
+/* Colores de cada plataforma */
+.plat-PS5    { background: #0070d1; }
+.plat-XBOX   { background: #107c10; }
+.plat-SWITCH { background: #e60012; }
+.plat-PC     { background: #6c757d; }
+
+/* ---------- Color principal: violeta (reemplaza el azul de Bootstrap) ---------- */
+:root {
+    --violeta: #7c3aed;
+    --violeta-oscuro: #6d28d9;
+}
+
+.bg-primary { background-color: var(--violeta) !important; }
+
+.btn-primary {
+    --bs-btn-bg: var(--violeta);
+    --bs-btn-border-color: var(--violeta);
+    --bs-btn-hover-bg: var(--violeta-oscuro);
+    --bs-btn-hover-border-color: var(--violeta-oscuro);
+    --bs-btn-active-bg: var(--violeta-oscuro);
+    --bs-btn-active-border-color: var(--violeta-oscuro);
+}
+
+.btn-outline-primary {
+    --bs-btn-color: var(--violeta);
+    --bs-btn-border-color: var(--violeta);
+    --bs-btn-hover-bg: var(--violeta);
+    --bs-btn-hover-border-color: var(--violeta);
+    --bs-btn-active-bg: var(--violeta-oscuro);
+    --bs-btn-active-border-color: var(--violeta-oscuro);
+}
+
+.stat-num { color: var(--violeta); }
+
+/* Borde violeta al hacer clic en un campo del formulario */
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--violeta);
+    box-shadow: 0 0 0 .2rem rgba(124, 58, 237, .25);
+}
+
+/* Enlaces del menú en blanco para que se lean bien sobre el violeta */
+.navbar .nav-link { color: rgba(255, 255, 255, .9); }
+.navbar .nav-link:hover { color: #fff; }

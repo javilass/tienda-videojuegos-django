@@ -1,0 +1,39 @@
+{% extends 'videojuegos/base.html' %}
+{% load formato %}
+{% block titulo %}Editar {{ juego.titulo }}{% endblock %}
+
+{% block contenido %}
+<div class="row g-4">
+    <!-- Formulario de edición (VideojuegoEditarForm: el título está bloqueado) -->
+    <div class="col-lg-8">
+        <div class="form-box p-4">
+            <h2 class="mb-1"><i class="bi bi-pencil-square text-warning"></i> Editar videojuego</h2>
+            <p class="text-secondary">Modifica los datos y guarda los cambios.</p>
+
+            <form method="post" novalidate>
+                {% csrf_token %}
+                {% include 'videojuegos/_campos.html' %}
+                <div class="mt-4 d-flex gap-2">
+                    <button type="submit" class="btn btn-warning"><i class="bi bi-arrow-repeat"></i> Actualizar</button>
+                    <a href="{% url 'videojuego_detalle' juego.pk %}" class="btn btn-outline-secondary">Cancelar</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Panel lateral con los datos guardados actualmente en la BD -->
+    <div class="col-lg-4">
+        <div class="tarjeta rounded p-3">
+            <h6 class="text-secondary">Datos actuales (ID {{ juego.pk }})</h6>
+            <h5>{{ juego.titulo }}</h5>
+            <span class="badge plat-{{ juego.plataforma }}">{{ juego.get_plataforma_display }}</span>
+            <ul class="list-unstyled mt-3 mb-0 small">
+                <li>Precio: <span class="precio">{{ juego.precio|clp }}</span></li>
+                <li>Stock: {{ juego.stock }}</li>
+                <li>Año: {{ juego.anio_lanzamiento }}</li>
+                <li>Registrado: {{ juego.fecha_registro|date:"d/m/Y" }}</li>
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}
