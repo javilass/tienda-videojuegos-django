@@ -19,15 +19,15 @@ from .forms import VideojuegoCrearForm, VideojuegoEditarForm
 from .models import Videojuego
 
 
-def inicio(request):
+def inicio(request): #muestra la página de inicio con algunos números de la tienda
     """Página principal con algunos números de la tienda."""
     contexto = {
         'total_juegos': Videojuego.objects.count(),                       # SELECT COUNT(*)
-        'total_stock': Videojuego.objects.aggregate(t=Sum('stock'))['t'] or 0,
-        'agotados': Videojuego.objects.filter(stock=0).count(),
+        'total_stock': Videojuego.objects.aggregate(t=Sum('stock'))['t'] or 0, #suma de todos los stocks
+        'agotados': Videojuego.objects.filter(stock=0).count(),           # videojuegos sin stock
         'recientes': Videojuego.objects.order_by('-fecha_registro')[:3],  # últimos 3 agregados
     }
-    return render(request, 'videojuegos/inicio.html', contexto)
+    return render(request, 'videojuegos/inicio.html', contexto) #entrega la respuesta al navegador con el template y los datos
 
 
 def videojuego_lista(request):

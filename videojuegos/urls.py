@@ -7,7 +7,7 @@ from django.urls import path
 
 from . import views
 
-urlpatterns = [
+urlpatterns = [ #conecta cada URL con su vista correspondiente
     path('', views.inicio, name='inicio'),
     path('videojuegos/', views.videojuego_lista, name='videojuego_lista'),
     path('videojuegos/nuevo/', views.videojuego_crear, name='videojuego_crear'),

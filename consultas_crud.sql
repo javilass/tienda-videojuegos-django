@@ -1,7 +1,6 @@
 -- =====================================================================
--- CRUD A NIVEL DE BASE DE DATOS (para demostrar en phpMyAdmin > pestaña SQL)
+-- CRUD A NIVEL DE BASE DE DATOS 
 -- Base de datos: tienda_videojuegos   |   Tabla: videojuegos_videojuego
--- Ejecuta cada bloque por separado y muestra el resultado.
 -- =====================================================================
 
 USE tienda_videojuegos;

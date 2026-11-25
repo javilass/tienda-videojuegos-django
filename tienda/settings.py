@@ -1,7 +1,7 @@
 """
 Configuración del proyecto "tienda".
 
-Lo más importante para la evaluación está en DATABASES (conexión a MySQL/MariaDB de XAMPP)
+Lo más importante está en DATABASES (conexión a MySQL/MariaDB de XAMPP)
 e INSTALLED_APPS (donde se registra nuestra app "videojuegos").
 """
 import os
@@ -30,7 +30,7 @@ INSTALLED_APPS = [
     'videojuegos',                  # <-- NUESTRA APP
 ]
 
-MIDDLEWARE = [
+MIDDLEWARE = [ #es una lista de middlewares que se ejecutan en cada request
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -40,9 +40,9 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'tienda.urls'
+ROOT_URLCONF = 'tienda.urls' #es el archivo que contiene las urls principales del proyecto, en este caso es tienda/urls.py
 
-TEMPLATES = [
+TEMPLATES = [ #es la configuración de los templates, que son los archivos HTML que se renderizan en el navegador
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [],
@@ -58,7 +58,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'tienda.wsgi.application'
+WSGI_APPLICATION = 'tienda.wsgi.application' #es el archivo que contiene la configuración de WSGI, que es el protocolo que usa Django para comunicarse con el servidor web
 
 
 # ==========================================================

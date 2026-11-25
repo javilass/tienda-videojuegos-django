@@ -14,7 +14,7 @@ class Migration(migrations.Migration):
     operations = [
         migrations.CreateModel(
             name='Videojuego',
-            fields=[
+            fields=[ #muestra los campos de la tabla videojuego
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('titulo', models.CharField(max_length=100, verbose_name='Título')),
                 ('plataforma', models.CharField(choices=[('PS5', 'PlayStation 5'), ('XBOX', 'Xbox Series X|S'), ('SWITCH', 'Nintendo Switch'), ('PC', 'PC')], max_length=10, verbose_name='Plataforma')),
